@@ -1,8 +1,15 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Github, Mail, ArrowDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
+    const scrollToProjects = () => {
+        const element = document.getElementById("projects");
+        element?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
         <div className="min-h-screen bg-black text-white">
             <motion.header
@@ -18,7 +25,7 @@ export default function Home() {
                         transition={{ delay: 0.2 }}
                         className="text-xl tracking-wider"
                     >
-                        Soujirou&#39;s PORTFOLIO
+                        Takagi Soujirou&#39;s
                     </motion.div>
 
                     <motion.div
@@ -48,6 +55,182 @@ export default function Home() {
                     </motion.div>
                 </nav>
             </motion.header>
+            <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+                {/* 背景アニメーション */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            rotate: [0, 90, 0],
+                        }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                        className="absolute top-1/4 left-1/4 w-96 h-96 bg-neutral-800/20 rounded-full blur-3xl"
+                    />
+                    <motion.div
+                        animate={{
+                            scale: [1.2, 1, 1.2],
+                            rotate: [90, 0, 90],
+                        }}
+                        transition={{
+                            duration: 15,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neutral-700/20 rounded-full blur-3xl"
+                    />
+                </div>
+
+                <div className="container mx-auto text-center relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        <h1 className="text-6xl md:text-8xl mb-6 tracking-tight">
+                            <span className="block">Fullstack</span>
+                            <span className="block text-neutral-400">
+                                Developer
+                            </span>
+                        </h1>
+                    </motion.div>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto"
+                    >
+                        デザインとコードの交差点で、ユーザー体験を重視した
+                        <br />
+                        美しく機能的なWebアプリケーションを創造しています。
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="flex gap-4 justify-center mb-12"
+                    >
+                        <motion.a
+                            href="https://github.com/takajirou"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="p-3 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors"
+                        >
+                            <Github className="w-6 h-6" />
+                        </motion.a>
+
+                        <motion.a
+                            href="mailto:soujirou.takagi@gmail.com"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="p-3 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors"
+                        >
+                            <Mail className="w-6 h-6" />
+                        </motion.a>
+                    </motion.div>
+
+                    <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                        onClick={scrollToProjects}
+                        className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
+                    >
+                        <span>作品を見る</span>
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <ArrowDown className="w-5 h-5" />
+                        </motion.div>
+                    </motion.button>
+                </div>
+            </section>
+            <section id="about" className="py-24 px-6 bg-neutral-900/50">
+                <div className="container mx-auto max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2 className="text-4xl md:text-5xl mb-8">About Me</h2>
+
+                        <div className="flex flex-col md:flex-row gap-12 items-center mb-12">
+                            <div className="space-y-4 text-neutral-400 leading-relaxed flex-1">
+                                <p>
+                                    はじめまして！私は、物事の「なぜ」を起点に、手を動かしながら考えるエンジニアです！
+                                </p>
+                                <p>
+                                    気になったことはとことん深掘りしないと気が済まない性格で、
+                                    気づけばフロントエンドからバックエンド、モバイルまで
+                                    領域を問わず触れるようになっていました。
+                                    つくるものは、日常の小さな不便や「こうだったらいいのに」という感覚から生まれることが多いです。
+                                </p>
+                                <p>
+                                    もともと人前が得意ではありませんでしたが、
+                                    それを言い訳にしたくなくて、自分から登壇やイベントスタッフの機会に飛び込んできました。
+                                    コードを書くことと、人と話すことの両方を、自分の武器にしていきたいと思っています。
+                                </p>
+                            </div>
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="shrink-0"
+                            >
+                                <div className="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-700">
+                                    <Image
+                                        src="/img/face_256x256.png"
+                                        alt="soujirou takagi"
+                                        width={256}
+                                        height={256}
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {[
+                                "React",
+                                "Next",
+                                "TypeScript",
+                                "NodeJS",
+                                "Go",
+                                "Tailwind CSS",
+                                "Figma",
+                                "Git",
+                            ].map((skill, index) => (
+                                <motion.div
+                                    key={skill}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: index * 0.05,
+                                    }}
+                                    className="p-4 bg-neutral-800 rounded-lg text-center hover:bg-neutral-700 transition-colors"
+                                >
+                                    {skill}
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
         </div>
     );
 }
