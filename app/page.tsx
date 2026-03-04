@@ -46,23 +46,20 @@ export default function Home() {
                         >
                             Works
                         </a>
-                        <a
+                        {/* <a
                             href="#contact"
                             className="hover:text-neutral-400 transition-colors"
                         >
                             Contact
-                        </a>
+                        </a> */}
                     </motion.div>
                 </nav>
             </motion.header>
+
             <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
-                {/* 背景アニメーション */}
                 <div className="absolute inset-0 overflow-hidden">
                     <motion.div
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            rotate: [0, 90, 0],
-                        }}
+                        animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
                         transition={{
                             duration: 20,
                             repeat: Infinity,
@@ -71,10 +68,7 @@ export default function Home() {
                         className="absolute top-1/4 left-1/4 w-96 h-96 bg-neutral-800/20 rounded-full blur-3xl"
                     />
                     <motion.div
-                        animate={{
-                            scale: [1.2, 1, 1.2],
-                            rotate: [90, 0, 90],
-                        }}
+                        animate={{ scale: [1.2, 1, 1.2], rotate: [90, 0, 90] }}
                         transition={{
                             duration: 15,
                             repeat: Infinity,
@@ -104,9 +98,9 @@ export default function Home() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto"
                     >
-                        デザインとコードの交差点で、ユーザー体験を重視した
+                        「なぜそうなっているのか」を問い続けながら、
                         <br />
-                        美しく機能的なWebアプリケーションを創造しています。
+                        日常の課題をコードで解きほぐすことが好きです。
                     </motion.p>
 
                     <motion.div
@@ -123,7 +117,6 @@ export default function Home() {
                         >
                             <Github className="w-6 h-6" />
                         </motion.a>
-
                         <motion.a
                             href="mailto:soujirou.takagi@gmail.com"
                             whileHover={{ scale: 1.05 }}
@@ -141,7 +134,7 @@ export default function Home() {
                         onClick={scrollToProjects}
                         className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
                     >
-                        <span>作品を見る</span>
+                        <span>つくったものを見る</span>
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
                             transition={{
@@ -155,6 +148,7 @@ export default function Home() {
                     </motion.button>
                 </div>
             </section>
+
             <section id="about" className="py-24 px-6 bg-neutral-900/50">
                 <div className="container mx-auto max-w-4xl">
                     <motion.div
@@ -168,18 +162,18 @@ export default function Home() {
                         <div className="flex flex-col md:flex-row gap-12 items-center mb-12">
                             <div className="space-y-4 text-neutral-400 leading-relaxed flex-1">
                                 <p>
-                                    はじめまして！私は、物事の「なぜ」を起点に、手を動かしながら考えるエンジニアです！
+                                    どうも、そうじろうです！気になったことは深掘りせずにいられない、
+                                    そんな性格のエンジニアです！
                                 </p>
                                 <p>
-                                    気になったことはとことん深掘りしないと気が済まない性格で、
-                                    気づけばフロントエンドからバックエンド、モバイルまで
-                                    領域を問わず触れるようになっていました。
-                                    つくるものは、日常の小さな不便や「こうだったらいいのに」という感覚から生まれることが多いです。
+                                    フロントもバックもモバイルも、面白そうなら何でも触ってきました。
+                                    「不便だな」「こうだったら良くない？」という日常のひっかかりが、
+                                    だいたいものづくりのきっかけになっています。
                                 </p>
                                 <p>
-                                    もともと人前が得意ではありませんでしたが、
-                                    それを言い訳にしたくなくて、自分から登壇やイベントスタッフの機会に飛び込んできました。
-                                    コードを書くことと、人と話すことの両方を、自分の武器にしていきたいと思っています。
+                                    人前はもともと苦手だったんですが、それを言い訳にしたくなくて
+                                    LTに登壇したりイベントスタッフに飛び込んだりしてきました。
+                                    コードも会話も、どっちも得意になりたいなと思っています。
                                 </p>
                             </div>
 
