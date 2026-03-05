@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Github, Mail, ArrowDown } from "lucide-react";
+import ProjectCard from "./components/ProjectCard";
 import Image from "next/image";
 
 export default function Home() {
@@ -9,6 +10,41 @@ export default function Home() {
         const element = document.getElementById("projects");
         element?.scrollIntoView({ behavior: "smooth" });
     };
+    const projects = [
+        {
+            title: "Steady x Study",
+            description:
+                "2024後期個人制作 日々の目標設計をサポートする事で、勉強のモチベーションを保つ事を目的としたWebアプリケーション",
+            image: "/img/steady.jpg",
+            technologies: ["Next", "TypeScript", "supabase"],
+            githubUrl: "https://github.com/takajirou/steadyxstudy",
+        },
+        {
+            title: "ECoin",
+            description:
+                "2025前期個人制作 ユーザーに日々の小さなタスクと報酬を与える事で、環境問題を解決する事を目的としたモバイルアプリ",
+            image: "/img/ecoin.png",
+            technologies: ["React Native", "Go"],
+            githubUrl: "https://github.com/takajirou/steadyxstudy",
+        },
+        {
+            title: "JSolve",
+            description:
+                "2025後期個人制作 競プロ/コーディングテスト対策をする人に向けてのJS特化競プロ学習Webサイト",
+            image: "/img/jsolve.png",
+            technologies: ["Next", "Node", "prisma"],
+            liveUrl: "https://j-solve.vercel.app/problems",
+            githubUrl: "https://github.com/takajirou/JSolve",
+        },
+        {
+            title: "たべごろ",
+            description: "2025後期チーム制作",
+            image: "/img/tabegoro.png",
+            technologies: ["Next", "Node", "prisma"],
+            liveUrl: "https://tabegoro.vercel.app/",
+            githubUrl: "https://github.com/team-baba-nasi/production",
+        },
+    ];
 
     return (
         <div className="min-h-screen bg-black text-white">
@@ -85,7 +121,7 @@ export default function Home() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <h1 className="text-6xl md:text-8xl mb-6 tracking-tight">
-                            <span className="block">Fullstack</span>
+                            <span className="block">I&#39;m Fullstack</span>
                             <span className="block text-neutral-400">
                                 Developer
                             </span>
@@ -162,11 +198,12 @@ export default function Home() {
                         <div className="flex flex-col md:flex-row gap-12 items-center mb-12">
                             <div className="space-y-4 text-neutral-400 leading-relaxed flex-1">
                                 <p>
-                                    どうも、そうじろうです！気になったことは深掘りせずにいられない、
+                                    どうも、高木 湊二郎(たかぎ
+                                    そうじろう)です！気になったことは深掘りせずにいられない、
                                     そんな性格のエンジニアです！
                                 </p>
                                 <p>
-                                    フロントもバックもモバイルも、面白そうなら何でも触ってきました。
+                                    フロントもバックもモバイルも、面白そうなものを興味の向くままに何でも触ってきました。
                                     「不便だな」「こうだったら良くない？」という日常のひっかかりが、
                                     だいたいものづくりのきっかけになっています。
                                 </p>
@@ -223,6 +260,34 @@ export default function Home() {
                             ))}
                         </div>
                     </motion.div>
+                </div>
+            </section>
+            <section id="projects" className="py-24 px-6">
+                <div className="container mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl mb-4">
+                            Selected Works
+                        </h2>
+                        <p className="text-neutral-400">
+                            これまでに手がけた主要なプロジェクト
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {projects.map((project, index) => (
+                            <ProjectCard
+                                key={index}
+                                {...project}
+                                index={index}
+                            />
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>
